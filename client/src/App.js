@@ -4,7 +4,8 @@ import { Balance } from './components/Balance';
 import { IncomeExpenses } from './components/IncomeExpenses';
 import { TransactionList } from './components/TransactionList';
 import { AddTransaction } from './components/AddTransaction';
-import Charts from './components/Charts';
+import { LineCharts } from './components/LineCharts';
+import { TransactionCharts } from './components/TransactionCharts';
 
 import { GlobalProvider } from './context/GlobalState';
 
@@ -13,21 +14,23 @@ import './App.css';
 function App() {
   return (
     <GlobalProvider>
+      <Header /> {/* Positioned as a navbar */}
       <div className="main-layout">
         <div className="container">
-          <Header />
           <Balance />
           <IncomeExpenses />
           <TransactionList />
           <AddTransaction />
         </div>
         <div className='right-container'>
-          <Charts/>
+          <TransactionCharts />
+          <LineCharts />
         </div>
       </div>
     </GlobalProvider>
   );
 }
+
 
 
 export default App;

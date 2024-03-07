@@ -12,14 +12,11 @@ body {
   background-color: #f7f7f7;
   display: flex;
   flex-direction: column;
-  /* align-items: center;
-  justify-content: center; */
   align-items: flex-start; /* Aligns content to the left */
   justify-content: flex-start; /* Aligns content to the top */
   min-height: 100vh;
   margin: 0;
   font-family: 'Lato', sans-serif;
-  border-style: dashed;
 }
 
 .header {
@@ -29,25 +26,38 @@ body {
   width: 100%; /* Full width */
   background-color: #333; /* Dark gray background */
   color: #fff; /* White text */
+  width: 100vw;
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-bottom: 10px;
 }
 
-/* .container {
-  margin: 30px auto;
-  width: 550px;
-} */
 .main-layout {
+  margin-top: 10px;
+  margin-left: 10px;
   display: flex;
   width: 100%;
   justify-content: flex-start; /* Aligns children (container) to the left */
 }
 
 .container {
-  /* Keep the original width and styles of the container */
-  width: 40vw; /* Or whatever the original width is */
-  margin: 30px;
-  border-style: dotted;
-  /* Rest of your styles */
+  width: 35vw; /* Or whatever the original width is */
+  margin-right: 10px
 }
+.right-container {
+  width: 60vw;
+}
+
+.chart-container {
+  display: flex;
+  width: 100%; /* Assuming you want it to take the full width of its parent */
+}
+
+.chart-container > div {
+  flex: 1; /* Each child div will take an equal amount of space */
+}
+
 
 h1 {
   letter-spacing: 1px;
@@ -174,3 +184,4 @@ input[type='number'] {
 .list li:hover .delete-btn {
   opacity: 1;
 }
+
