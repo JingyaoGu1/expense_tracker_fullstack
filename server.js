@@ -7,16 +7,19 @@ const connectDB = require('./config/db');
 const multer = require('multer');
 const cloudinary = require('cloudinary').v2;
 const { promisify } = require('util');
+const cors = require('cors');
 
 dotenv.config({ path: './config/config.env' });
 
 connectDB();
 
 const transactions = require('./routes/transactions');
+const users = require('./routes/users')
 
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 
 // receipt logic
@@ -86,6 +89,8 @@ if(process.env.NODE_ENV === 'development') {
 }
 
 app.use('/api/v1/transactions', transactions);
+app.use('/api/v1/users', users);
+
 
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));

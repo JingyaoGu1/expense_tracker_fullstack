@@ -3,7 +3,7 @@ import { Transaction } from './Transaction';
 import { GlobalContext } from '../context/GlobalState';
 
 export const TransactionList = () => {
-  const { transactions } = useContext(GlobalContext);
+  const { transactions, user } = useContext(GlobalContext);
 
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [categories, setCategories] = useState(['All']);
@@ -16,7 +16,7 @@ export const TransactionList = () => {
   useEffect(() => {
     const uniqueCategories = [...new Set(transactions.map(transaction => transaction.category))];
     setCategories(['All', ...uniqueCategories]);
-  }, [transactions]);
+  }, [transactions, user]);
 
   const getStartAndEndOfWeek = (date) => {
     const d = new Date(date);

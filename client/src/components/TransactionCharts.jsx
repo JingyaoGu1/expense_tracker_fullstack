@@ -3,12 +3,12 @@ import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import { GlobalContext } from '../context/GlobalState';
 
 export const TransactionCharts = () => {
-  const { transactions, getTransactions } = useContext(GlobalContext);
+  const { transactions, getTransactions, user } = useContext(GlobalContext);
 
   useEffect(() => {
     getTransactions();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [user]);
 
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AF19FF'];
 
